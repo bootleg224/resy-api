@@ -1,0 +1,30 @@
+{
+  "name": "resy-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/index.ts"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "moment": "^2.29.3",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "@types/moment": "^2.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.6.2"
+  }
+}
