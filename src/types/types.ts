@@ -1,3 +1,46 @@
+export interface UserResponse {
+  id: number;
+  first_name: string;
+  last_name: string;
+  mobile_number: string;
+  em_address: string;
+  profile_image_id: string;
+  fb_user_id: null;
+  date_fb_token_expires: null;
+  twit_user_id: null;
+  in_user_id: null;
+  em_is_verified: number;
+  mobile_number_is_verified: number;
+  is_active: number;
+  referral_code: string;
+  date_app_first_opened: null;
+  bio: null;
+  is_marketable: number;
+  date_of_birth: Date;
+  is_concierge: number;
+  date_updated: number;
+  date_created: number;
+  has_set_password: number;
+  viewed_gda_welcome: boolean;
+  num_bookings: number;
+  payment_methods: PaymentMethod[];
+  alternate_mobile_numbers: null;
+  venue_credits: null;
+  amex_card_types: any[];
+  resy_select: number;
+  is_global_dining_access: boolean;
+  profile_image_url: string;
+  payment_method_id: number;
+  payment_provider_id: number;
+  payment_provider_name: string;
+  payment_display: string;
+  is_rga: boolean;
+  guest_id: number;
+  allergies: null;
+  email_opt_out: any[];
+  venue_opt_in: any[];
+}
+
 export interface LoginResponse {
   id: number;
   first_name: string;
@@ -272,4 +315,40 @@ export interface SuggestionMeta {
   region: string;
   country: Country;
   location: HitLocation;
+}
+
+export interface VenueCalendarResponse {
+  scheduled: Scheduled[];
+  last_calendar_day: Date;
+}
+
+export interface Scheduled {
+  date: string;
+  inventory: Inventory;
+}
+
+export interface Inventory {
+  reservation: Reservation;
+  event: Event;
+  "walk-in": Event;
+}
+
+export enum Event {
+  Closed = "closed",
+  NotAvailable = "not available",
+}
+
+export enum Reservation {
+  Available = "available",
+  Closed = "closed",
+  SoldOut = "sold-out",
+}
+export interface GeoIpResponse {
+  ip: string;
+  latitude: number;
+  longitude: number;
+  country_iso_code: string;
+  is_in_eu: boolean;
+  source: string;
+  success: boolean;
 }

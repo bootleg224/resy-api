@@ -11,7 +11,7 @@ export class BaseService {
   private generateFullPath = (path: string) => {
     const pathToUse = (path || "").trim();
     if (pathToUse.startsWith("/")) {
-      return this.baseUrl + pathToUse;
+      return this.baseUrl + pathToUse.slice(1);
     }
     return `${this.baseUrl}/${pathToUse}`;
   };
@@ -36,7 +36,8 @@ export class BaseService {
     path: string,
     config?: AxiosRequestConfig
   ): Promise<AxiosResponse<T>> => {
-    return axios.get(this.generateFullPath(path), config);
+    const fullPath = this.generateFullPath(path);
+    return axios.get(fullPath, config);
   };
 
   delete = async <T>(

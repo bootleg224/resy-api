@@ -1,3 +1,5 @@
+import type { Dayjs } from "dayjs";
+
 export interface FindResponse {
   query: Query;
   bookmark: null;
@@ -58,6 +60,11 @@ export interface Slot {
   payment: Payment;
 }
 
+export interface EnhancedSlot extends Slot {
+  start?: Dayjs;
+  diff: number;
+}
+
 export interface Availability {
   id: number;
 }
@@ -76,8 +83,8 @@ export enum Type {
 }
 
 export interface SlotDate {
-  end: Date;
-  start: Date;
+  end: string;
+  start: string;
 }
 
 export interface DisplayConfig {
@@ -136,7 +143,7 @@ export interface Score {
 export interface Shift {
   id: number;
   service: Inventory;
-  day: Date;
+  day: string;
 }
 
 export interface Inventory {
