@@ -21,6 +21,7 @@ const routes = {
   geoip: "/3/geoip",
   login: "/3/auth/password",
   logout: "/2/user/device",
+  notify: "/2/notify",
   reservations: "/3/user/reservations",
   search: "/4/find",
   user: "/2/user",
@@ -28,6 +29,15 @@ const routes = {
   venueCalendar: "/4/venue/calendar",
   venueSearch: "/3/venuesearch/search",
 };
+
+export interface NotifyObj {
+  venue_id: number;
+  day: string; // date with format 2022-05-18
+  time_preferred_start: string; // time with format17:00:00
+  time_preferred_end: string; // time with format 23:59:59
+  num_seats: number;
+  service_type_id: 1 | 2; // 1 is lunch and 2 is dinner i think
+}
 
 export interface SearchObj {
   query: string;
@@ -246,6 +256,13 @@ class ResyService extends BaseService {
       resy_token,
     });
     return this.post<ReservationResponse>(routes.cancel, data.toString(), {
+      headers: this.headers,
+    });
+  };
+
+  setUpPriorityNotification = async (notifyReq: NotifyObj) => {
+    const data = new URLSearchParams(notifyReq as any);
+    return this.post<null>(routes.notify, data.toString(), {
       headers: this.headers,
     });
   };

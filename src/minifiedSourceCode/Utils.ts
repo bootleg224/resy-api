@@ -81,8 +81,8 @@ const Utils: UtilType = {
   isNullOrUndefined: (value) => Utils.isNull(value) || Utils.isUndefined(value),
   parsePhone: (obj: any) => undefined,
 } as UtilType;
-// shamelessly stolen from https://toddmotto.com/understanding-javascript-types-and-reliable-type-checking/
 
+// shamelessly stolen from https://toddmotto.com/understanding-javascript-types-and-reliable-type-checking/
 types.forEach((type) => {
   Utils["is".concat(type)] = (
     (self) => (elem) =>
