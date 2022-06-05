@@ -37,7 +37,8 @@ Resy API uses `lowdb`, a small JSON db, to store its information. You can either
       "preferredTime": "19:30",
       "maxTime": "22:00",
       "shouldBook": true,
-      "partySize": 2
+      "partySize": 2,
+      "allowedDates": ["2022-06-07", "2022-06-08"]
     }
   ]
 }
