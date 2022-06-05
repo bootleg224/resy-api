@@ -15,6 +15,7 @@ export interface VenueToWatch {
   maxTime: string;
   uuid: string;
   partySize?: number;
+  allowedDates: string[];
 }
 
 interface DbSchema {

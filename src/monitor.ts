@@ -71,6 +71,17 @@ const refreshAvailabilityForVenue = async (venue: VenueToWatch) => {
       return;
     }
     for (const dateToCheck of availableDates) {
+
+      //if dateToCheck.date in list of dates
+      if(venue.allowedDates)
+      {        
+        if(venue.allowedDates.indexOf(dateToCheck.date) == -1)
+        {
+          log.info("skipping available date because of allowed dates flag");
+          continue;
+        }
+      }
+      
       const slots = (await service.getAvailableTimesForVenueAndDate(
         venue.id,
         dateToCheck.date,
